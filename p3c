@@ -1,0 +1,28 @@
+//app.yaml:
+runtime: python39
+entrypoint: gunicorn -b :$PORT main:app
+
+
+//main.py:
+from flask import Flask, render_template
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return render_template('index.html', title="Home Page")
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
+
+//templates/index.html 
+<!DOCTYPE html>
+<html>
+<head><title>{{ title }}</title></head>
+<body>
+  <h1>Welcome to My App Engine Page</h1>
+  <img src="https://via.placeholder.com/200" alt="Sample Image">
+  <a href="https://cloud.google.com">Visit Google Cloud</a>
+</body>
+</html>
+
+//requirements.txt
+Flask==3.0.0
+gunicorn==21.2.0
