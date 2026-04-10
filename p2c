@@ -1,0 +1,15 @@
+git init
+git config --global user.name "Name"
+git config --global user.email "email"
+echo "Hello" > hello.txt
+git add .
+git commit -m "initial commit"
+git remote add origin <url>
+git push -u origin main
+git fetch origin
+git pull origin main
+git checkout -b new-branch
+git checkout main
+git reset --hard HEAD
+git branch -d new-branch
+
